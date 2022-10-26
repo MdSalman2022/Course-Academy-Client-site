@@ -8,7 +8,7 @@ const CourseCard = ({ course }) => {
 
     return (
         <div className="card w-full h-80 bg-base-100 shadow-xl image-full border-2">
-            <figure><img className='opacity-90 object-fit' src={image} alt="Shoes" /></figure>
+            <figure><img className='opacity-70 object-fit' src={image} alt="Shoes" /></figure>
             <div className="card-body ">
                 <p className='text-2xl font-bold text-white'>{title}</p>
                 <p className='text-white'>

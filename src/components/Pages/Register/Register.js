@@ -1,12 +1,18 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast'
+
+
 
 const Register = () => {
 
     const [error, setError] = useState('')
-    const [accepted, setAccepted] = useState(false)
-    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext)
+    const { createUser, updateUserProfile, verifyEmail, providerLogin } = useContext(AuthContext)
+
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -53,6 +59,27 @@ const Register = () => {
             .catch(error => console.error(error))
     }
 
+    const googleSignIn = event => {
+        event.preventDefault();
+        const Provider = new GoogleAuthProvider();
+        providerLogin(Provider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+    const githubSignIn = event => {
+        event.preventDefault();
+        const Provider = new GithubAuthProvider();
+        providerLogin(Provider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div >
             <h1 className='text-3xl font-bold mb-5'>Register</h1>
@@ -83,11 +110,18 @@ const Register = () => {
                             </label>
                             <input type="password" placeholder="Password" name="password" className="input input-text-primary input-bordered w-full max-w-xs text-slate-900" />
 
+                            <p className='text-red-500 mt-2'>{error}</p>
 
 
                             <br />
                             <input type="submit" value="Sign Up" class="btn" />
+                            <p className=' mt-2'>Already have an account? <Link className='text-success' to="/login">Login</Link> </p>
+
+
                         </div>
+                        <div className="divider">OR</div>
+                        <button onClick={googleSignIn} className="btn btn-white dark:btn-neutral dark:text-white w-full "> <FcGoogle className='mr-5' />  Continue with Google</button>
+                        <button onClick={githubSignIn} className="btn btn-white dark:btn-neutral dark:text-white w-full "> <FaGithub className='mr-5' />  Continue with Github</button>
                     </div>
                 </form>
             </div>

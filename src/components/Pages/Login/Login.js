@@ -1,13 +1,19 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
 
 const Login = () => {
 
-    const { signIn, setLoading } = useContext(AuthContext)
+    const { signIn, providerLogin, setLoading } = useContext(AuthContext)
     const [error, setError] = useState('')
     const navigate = useNavigate()
     const location = useLocation()
+
+
+    const from = location?.state?.from.pathname || '/'
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -22,7 +28,7 @@ const Login = () => {
                 setError('')
                 if (user.emailVerified) {
                     console.log("you are verified");
-                    // navigate(from, { replace: true })
+                    navigate(from, { replace: true })
                 }
                 else {
                     console.error('Your email is not verified. Please verify email address.')
@@ -35,6 +41,26 @@ const Login = () => {
             .finally(() => {
                 setLoading(false)
             })
+    }
+    const googleSignIn = event => {
+        event.preventDefault();
+        const Provider = new GoogleAuthProvider();
+        providerLogin(Provider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+    const githubSignIn = event => {
+        event.preventDefault();
+        const Provider = new GithubAuthProvider();
+        providerLogin(Provider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
     }
 
     return (
@@ -57,7 +83,13 @@ const Login = () => {
                             <p className='text-red-500 mt-2'>{error}</p>
                             <br />
                             <input type="submit" value="Login" class="btn" />
+                            <p className=' mt-2'>Don't have an account? <Link className='text-success' to="/register">Register</Link> </p>
+
                         </div>
+                        <div className="divider">OR</div>
+                        <button onClick={googleSignIn} className="btn btn-white dark:btn-neutral dark:text-white w-full "> <FcGoogle className='mr-5' />  Continue with Google</button>
+                        <button onClick={githubSignIn} className="btn btn-white dark:btn-neutral dark:text-white w-full "> <FaGithub className='mr-5' />  Continue with Github</button>
+
                     </div>
                 </form>
             </div>

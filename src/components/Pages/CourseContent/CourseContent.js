@@ -16,8 +16,8 @@ const CourseContent = () => {
         <div className='flex flex-col items-center justify-center'>
 
             <div className="container text-left">
+                <p className='text-6xl font-bold mb-5 text-center'>{title}</p>
                 <div className='px-40'><img className='w-full mb-10 rounded-lg' src={image} alt="" /></div>
-                <p className='text-6xl font-bold mb-5 '>{title}</p>
                 <div className="badge text-yellow-400"><FaStar /> &nbsp;{rating}</div>&nbsp;&nbsp;
                 <div className="badge badge-primary">{category}</div>&nbsp;&nbsp;
                 <div className="badge badge-primary">{instructor}</div>
