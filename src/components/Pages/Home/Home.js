@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Course from '../Course/Course';
 import CourseCard from '../CourseCard/CourseCard';
 
@@ -16,7 +16,7 @@ const Home = () => {
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md text-white">
                         <h1 className="mb-5 text-5xl font-bold">Study Online is now much easier</h1>
-                        <button className="btn btn-primary">Join for free</button>
+                        <Link to="/register"><button className="btn btn-primary">Join for free</button></Link>
                     </div>
                 </div>
             </div>

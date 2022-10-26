@@ -90,23 +90,23 @@ const Register = () => {
                         <div className="form-control w-full max-w-xs">
 
                             <label className="label">
-                                <span className="label-text text-white">Full name</span>
+                                <span className="label-text dark:text-white">Full name</span>
                             </label>
                             <input type="text" placeholder="Name" name="name" className="input input-text-primary input-bordered w-full max-w-xs text-slate-900" />
 
                             <label className="label">
-                                <span className="label-text text-white">Photo Url</span>
+                                <span className="label-text dark:text-white">Photo Url</span>
                             </label>
                             <input type="ext" placeholder="Photo Url" name="photoURL" className="input input-text-primary input-bordered w-full max-w-xs text-slate-900" />
 
 
                             <label className="label">
-                                <span className="label-text text-white">Your Email</span>
+                                <span className="label-text dark:text-white">Your Email</span>
                             </label>
                             <input type="text" placeholder="Email" name="email" className="input input-bordered w-full max-w-xs text-slate-900" />
 
                             <label className="label">
-                                <span className="label-text text-white">Your Password</span>
+                                <span className="label-text dark:text-white">Your Password</span>
                             </label>
                             <input type="password" placeholder="Password" name="password" className="input input-text-primary input-bordered w-full max-w-xs text-slate-900" />
 
@@ -115,11 +115,11 @@ const Register = () => {
 
                             <br />
                             <input type="submit" value="Sign Up" class="btn" />
-                            <p className=' mt-2'>Already have an account? <Link className='text-success' to="/login">Login</Link> </p>
+                            <p className=' mt-2 text-black dark:text-white'>Already have an account? <Link className='text-success' to="/login">Login</Link> </p>
 
 
                         </div>
-                        <div className="divider">OR</div>
+                        <div className="divider text-black dark:text-white">OR</div>
                         <button onClick={googleSignIn} className="btn btn-white dark:btn-neutral dark:text-white w-full "> <FcGoogle className='mr-5' />  Continue with Google</button>
                         <button onClick={githubSignIn} className="btn btn-white dark:btn-neutral dark:text-white w-full "> <FaGithub className='mr-5' />  Continue with Github</button>
                     </div>

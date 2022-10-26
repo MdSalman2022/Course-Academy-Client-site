@@ -35,7 +35,7 @@ const Header = () => {
                     <a className="btn btn-ghost normal-case text-2xl dark:text-white">Course<span className='text-primary'>Academy</span></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="dark:text-white menu menu-horizontal p-0">
+                    <ul className="dark:text-white menu menu-horizontal p-0 gap-2">
                         <li><NavLink to="/home">Home</NavLink></li>
                         <li><NavLink to="/course">Course</NavLink></li>
                         <li><NavLink to="/faq">FAQ</NavLink></li>
