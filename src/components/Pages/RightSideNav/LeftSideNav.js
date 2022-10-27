@@ -17,7 +17,7 @@ const LeftSideNav = () => {
 
         <div>
             <div className="category">
-                <ul className="menu shadow-2xl bg-base-200 dark:bg-slate-800  w-80 p-2 rounded-box text-center">
+                <ul className="menu shadow-2xl bg-base-200    w-80 p-2 rounded-box text-center">
                     <h4 className='text-xl font-bold mb-2'>Category</h4>
 
                     <div>

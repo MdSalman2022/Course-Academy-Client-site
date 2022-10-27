@@ -101,28 +101,28 @@ const Register = () => {
             <h1 className='text-3xl font-bold mb-5'>Register</h1>
             <div className="flex justify-center">
 
-                <form onSubmit={handleSubmit} className=" card w-96 bg-base-100 text-neutral-content dark:bg-slate-800 dark:text-white">
+                <form onSubmit={handleSubmit} className=" card w-96 bg-base-100 text-neutral-content     ">
                     <div className="card-body items-center text-left">
                         <div className="form-control w-full max-w-xs">
 
                             <label className="label">
-                                <span className="label-text dark:text-white">Full name</span>
+                                <span className="label-text   ">Full name</span>
                             </label>
                             <input type="text" placeholder="Name" name="name" className="input input-text-primary input-bordered w-full max-w-xs text-slate-900" required />
 
                             <label className="label">
-                                <span className="label-text dark:text-white">Photo Url</span>
+                                <span className="label-text   ">Photo Url</span>
                             </label>
                             <input type="ext" placeholder="Photo Url" name="photoURL" className="input input-text-primary input-bordered w-full max-w-xs text-slate-900" required />
 
 
                             <label className="label">
-                                <span className="label-text dark:text-white">Your Email</span>
+                                <span className="label-text   ">Your Email</span>
                             </label>
                             <input type="text" placeholder="Email" name="email" className="input input-bordered w-full max-w-xs text-slate-900" required />
 
                             <label className="label">
-                                <span className="label-text dark:text-white">Your Password</span>
+                                <span className="label-text   ">Your Password</span>
                             </label>
                             <input type="password" placeholder="Password" name="password" className="input input-text-primary input-bordered w-full max-w-xs text-slate-900" required />
 
@@ -131,13 +131,13 @@ const Register = () => {
 
                             <br />
                             <input type="submit" value="Sign Up" class="btn" />
-                            <p className=' mt-2 text-black dark:text-white'>Already have an account? <Link className='text-success' to="/login">Login</Link> </p>
+                            <p className=' mt-2  '>Already have an account? <Link className='text-success' to="/login">Login</Link> </p>
 
 
                         </div>
-                        <div className="divider text-black dark:text-white">OR</div>
-                        <button onClick={googleSignIn} className="btn btn-white dark:btn-neutral dark:text-white w-full "> <FcGoogle className='mr-5' />  Continue with Google</button>
-                        <button onClick={githubSignIn} className="btn btn-white dark:btn-neutral dark:text-white w-full "> <FaGithub className='mr-5' />  Continue with Github</button>
+                        <div className="divider ">OR</div>
+                        <button onClick={googleSignIn} className="btn btn-white dark:btn-neutral    w-full "> <FcGoogle className='mr-5' />  Continue with Google</button>
+                        <button onClick={githubSignIn} className="btn btn-white dark:btn-neutral    w-full "> <FaGithub className='mr-5' />  Continue with Github</button>
                         <ToastContainer />
 
                     </div>

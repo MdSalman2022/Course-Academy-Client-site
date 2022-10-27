@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const CheckOut = () => {
+    const { user, logOut } = useContext(AuthContext)
 
     const course = useLoaderData()
 
@@ -15,33 +17,47 @@ const CheckOut = () => {
     });
 
     return (
-        <div className='h-screen grid grid-cols-2 justify-items-center dark:text-white container mx-auto'>
-            <div className='p-5 mb-5 w-full'>
+        <div className='h-screen grid grid-cols-1 lg:grid-cols-2 justify-items-center container mx-auto '>
+            <div className='p-5 mb-5 lg:w-full w-96'>
                 <p className='text-2xl font-bold text-left mb-5'>Check Out</p>
                 <div className="">
+                    <div className="form-control lg:w-full w-80 rounded-lg mb-5">
+                        <p className='text-left font-bold '>Deliver to: {user?.displayName}</p>
+                        <p className='text-left font-bold '>{user?.email}</p>
+                    </div>
+
                     <p className='text-2xl text-left mb-5'>Payment Method</p>
-                    <div className="form-control w-full border rounded-lg p-2 mb-5">
+                    <div className="form-control lg:w-full w-80 border rounded-lg p-2 mb-5">
                         <label className="label cursor-pointer">
-                            <span className="label-text dark:text-white">Credit/Debit Card</span>
-                            <input type="radio" name="radio-6" className="radio dark:border-white checked:bg-primary" />
+                            <span className="label-text">Credit/Debit Card</span>
+                            <input type="radio" name="radio-6" className="radio  checked:bg-primary" />
                         </label>
                     </div>
-                    <div className="form-control w-full border rounded-lg p-2">
+                    <div className="form-control lg:w-full w-80 border rounded-lg p-2">
                         <label className="label cursor-pointer ">
-                            <span className="label-text dark:text-white">Bkash</span>
-                            <input type="radio" name="radio-6" className="radio  dark:border-white checked:bg-primary" />
+                            <span className="label-text">Bkash</span>
+                            <input type="radio" name="radio-6" className="radio  checked:bg-primary" />
                         </label>
                     </div>
                 </div>
+                <br />
+                <p className='text-2xl text-left mb-5'>Order</p>
                 <div className="overflow-x-auto  my-5">
-                    <p className='text-2xl text-left mb-5'>Order</p>
                     <table className="table w-full">
                         <div className='rounded-lg border'>
-                            <tr className=''>
-                                <td><img className='w-14' src={image} alt="" /></td>
-                                <td>{title}</td>
+                            <tr className='hidden lg:block'>
+                                <td><img className='lg:w-14 w-max' src={image} alt="" /></td>
+                                <td className=''>{title}</td>
                                 <td>Price: {price}</td>
                             </tr>
+                            <div className="grid grid-cols-4 gap-3 p-2 items-center block lg:hidden">
+                                <img className='object-cover' src={image} alt="" />
+                                <div className='col-span-3'>
+                                    <p>{title}</p>
+                                    <p>Price: ৳ {price}</p>
+                                </div>
+                            </div>
+                            {/* <p className='flex'><img src={image} alt="" /> {title} {price}</p> */}
                         </div>
 
                     </table>
@@ -54,31 +70,31 @@ const CheckOut = () => {
                     <table className="table w-full ">
                         <thead>
                             <tr>
-                                <th className='dark:bg-slate-800'>Summary</th>
-                                <th className='dark:bg-slate-800'></th>
-                                <th className='dark:bg-slate-800'></th>
+                                <th className=' '>Summary</th>
+                                <th className=' '></th>
+                                <th className=' '></th>
                             </tr>
                         </thead>
                         <tbody className=''>
                             <tr>
-                                <td className='dark:bg-slate-800'>Original Price</td>
-                                <td className='dark:bg-slate-800'></td>
-                                <td className='dark:bg-slate-800'>৳ {price + 200}</td>
+                                <td className=' '>Original Price</td>
+                                <td className=' '></td>
+                                <td className=' '>৳ {price + 200}</td>
                             </tr>
                             <tr>
-                                <td className='dark:bg-slate-800'>Discounts</td>
-                                <td className='dark:bg-slate-800'></td>
-                                <td className='dark:bg-slate-800'>-৳ 200</td>
+                                <td className=' '>Discounts</td>
+                                <td className=' '></td>
+                                <td className=' '>-৳ 200</td>
                             </tr>
                             <tr>
-                                <td className='dark:bg-slate-800'>Total: </td>
-                                <td className='dark:bg-slate-800'></td>
-                                <td className='dark:bg-slate-800'>৳ {price}</td>
+                                <td className=' '>Total: </td>
+                                <td className=' '></td>
+                                <td className=' '>৳ {price}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <Link onClick={notify} className="btn bg-primary text-white  border-0 dark:bg-slate-800">Complete Checkout</Link>
+                <Link onClick={notify} className="btn bg-primary text-white  border-0">Complete Checkout</Link>
 
                 <ToastContainer />
 

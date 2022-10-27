@@ -23,24 +23,24 @@ const Home = () => {
             <div>
                 <div className='my-10'>
                     <div className="grid lg:grid-cols-3 gap-5 place-items-center ">
-                        <div className="card bg-primary text-white dark:bg-neutral dark:text-neutral-content">
+                        <div className="card bg-primary text-white dark:bg-neutral"    >
                             <div className="card-body items-center text-center ">
                                 <p className='text-xl'>10,000 Online Courses</p>
                             </div>
                         </div>
-                        <div className="card bg-primary text-white dark:bg-neutral dark:text-neutral-content">
+                        <div className="card bg-primary text-white dark:bg-neutral"    >
                             <div className="card-body items-center text-center">
                                 <p className='text-xl'>Expert Instruction</p>
                             </div>
                         </div>
-                        <div className="card bg-primary text-white dark:bg-neutral dark:text-neutral-content">
+                        <div className="card bg-primary text-white dark:bg-neutral"    >
                             <div className="card-body items-center text-center">
-                                <p className='text-xl'>Lifetime Access</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                <p className='text-xl' > Lifetime Access</p>
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
             <div className='mx-5 lg:mx-20'>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 h-full w-full place-items-center">
                     {
@@ -49,7 +49,7 @@ const Home = () => {
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
