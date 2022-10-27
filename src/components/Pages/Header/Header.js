@@ -18,7 +18,6 @@ const Header = () => {
 
     useEffect(() => {
         themeChange(false)
-        // 👆 false parameter is required for react project
     }, [])
 
     return (
@@ -66,7 +65,6 @@ const Header = () => {
                         {
                             user?.uid ?
                                 <>
-                                    {/* <span>{user?.displayName}</span> */}
                                     <Link>
                                         <div className="avatar online">
                                             <div className="w-10 rounded-full">
