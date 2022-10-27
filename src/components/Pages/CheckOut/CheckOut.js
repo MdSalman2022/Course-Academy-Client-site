@@ -5,11 +5,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const CheckOut = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const course = useLoaderData()
 
-    let { title, image, description, id, price } = course;
+    let { title, image, price } = course;
     price = parseInt(price)
     console.log(price)
     const notify = () => toast.success('Ordered', {
@@ -25,7 +25,6 @@ const CheckOut = () => {
                         <p className='text-left font-bold '>Deliver to: {user?.displayName}</p>
                         <p className='text-left font-bold '>{user?.email}</p>
                     </div>
-
                     <p className='text-2xl text-left mb-5'>Payment Method</p>
                     <div className="form-control lg:w-full w-80 border rounded-lg p-2 mb-5">
                         <label className="label cursor-pointer">
