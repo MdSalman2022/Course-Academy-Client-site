@@ -11,7 +11,6 @@ const CheckOut = () => {
 
     let { title, image, price } = course;
     price = parseInt(price)
-    console.log(price)
     const notify = () => toast.success('Ordered', {
         position: toast.POSITION.BOTTOM_RIGHT
     });

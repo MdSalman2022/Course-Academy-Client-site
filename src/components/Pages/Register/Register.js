@@ -33,12 +33,10 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL, email, password);
 
         createUser(email, password)
             .then(result => {
                 const user = result.user
-                console.log(user);
                 setError('')
                 form.reset();
                 handleUpdateUserProfile(name, photoURL)
@@ -81,7 +79,6 @@ const Register = () => {
         providerLogin(Provider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
             })
             .catch(error => console.error(error))
     }
@@ -91,7 +88,6 @@ const Register = () => {
         providerLogin(Provider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
             })
             .catch(error => console.error(error))
     }

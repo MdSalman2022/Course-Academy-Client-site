@@ -7,8 +7,6 @@ const ref = React.createRef();
 
 const CourseContent = () => {
 
-    // const { description, id, image, title } = course;
-    // console.log(course)
     const course = useLoaderData()
 
     const { title, image, description, id, instructor, category, rating, details } = course;
