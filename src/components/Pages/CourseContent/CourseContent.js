@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaPrint, FaStar } from 'react-icons/fa';
-import ReactToPdf from "react-to-pdf";
+import Pdf from "react-to-pdf";
 const ref = React.createRef();
 
 
@@ -21,15 +21,12 @@ const CourseContent = () => {
 
 
     return (
-        <div >
-
+        <div>
+            <Pdf targetRef={ref} filename="post.pdf" options={options} x={0.5} y={0.5} scale={1}>
+                {({ toPdf }) => <button onClick={toPdf} className="text-2xl border-2 border-black p-2 rounded"><FaPrint /></button>}
+            </Pdf>
             <div ref={ref} className='flex flex-col items-center justify-center'>
                 <div className="container text-left" >
-                    <ReactToPdf className="text-black" targetRef={ref} filename={`${title}.pdf`} options={options} x={0.5} y={0.5} scale={1}>
-                        {({ toPdf }) => (
-                            <button onClick={toPdf}><FaPrint /></button>
-                        )}
-                    </ReactToPdf>
                     <p className='text-6xl font-bold mb-5 text-center'>{title}</p>
                     <div className='px-40'><img className='w-full mb-10 rounded-lg' src={image} alt="" /></div>
                     <div className="badge border-0 bg-accent text-yellow-400"><FaStar /> &nbsp;{rating}</div>&nbsp;&nbsp;

@@ -21,7 +21,7 @@ const CourseCard = ({ course }) => {
                 </p>
                 <div className="card-actions justify-center ">
                     <Link to={`/course-content/${id}`}>
-                        <button className="btn btn-neutral">Preview Course</button>
+                        <button className="btn btn-primary dark:btn-neutral">Preview Course</button>
                     </Link>
 
                 </div>

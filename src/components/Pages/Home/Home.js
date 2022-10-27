@@ -41,7 +41,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='m-20'>
+            <div className='mx-5 lg:mx-20'>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 h-full w-full place-items-center">
                     {
                         courses.map(course => <CourseCard key={course.id} course={course}></CourseCard>)

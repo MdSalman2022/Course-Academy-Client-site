@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Course from '../Course/Course';
 
-const RightSideNav = () => {
+const LeftSideNav = () => {
 
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/category-list')
+        fetch('https://course-academy-server.vercel.app/category-list')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
@@ -17,7 +17,7 @@ const RightSideNav = () => {
 
         <div>
             <div className="category">
-                <ul className="menu shadow-2xl bg-base-200 dark:bg-slate-800  w-56 p-2 rounded-box text-center">
+                <ul className="menu shadow-2xl bg-base-200 dark:bg-slate-800  w-80 p-2 rounded-box text-center">
                     <h4 className='text-xl font-bold mb-2'>Category</h4>
 
                     <div>
@@ -35,4 +35,4 @@ const RightSideNav = () => {
     );
 };
 
-export default RightSideNav;
+export default LeftSideNav;

@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
@@ -12,6 +14,12 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
+
+    const showToastMessage = () => {
+        toast.error('Your email is not verified. Please verify email address.', {
+            position: toast.POSITION.BOTTOM_RIGHT
+        });
+    };
 
     const from = location?.state?.from.pathname || '/'
 
@@ -27,12 +35,12 @@ const Login = () => {
                 form.reset();
                 setError('')
                 if (user.emailVerified) {
-                    console.log("you are verified");
                     navigate(from, { replace: true })
                 }
                 else {
-                    console.error('Your email is not verified. Please verify email address.')
+                    showToastMessage();
                 }
+                // navigate('/')
             })
             .catch(error => {
                 console.error(error)
@@ -49,6 +57,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }
@@ -59,6 +68,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }
@@ -74,11 +84,11 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text dark:text-white ">Your Email</span>
                             </label>
-                            <input type="text" placeholder="Email" name="email" className="input input-bordered w-full max-w-xs text-slate-900" />
+                            <input type="text" placeholder="Email" name="email" className="input input-bordered w-full max-w-xs text-slate-900" required />
                             <label className="label">
                                 <span className="label-text dark:text-white">Your Password</span>
                             </label>
-                            <input type="password" placeholder="Password" name="password" className="input input-text-primary input-bordered w-full max-w-xs text-slate-900" />
+                            <input type="password" placeholder="Password" name="password" className="input input-text-primary input-bordered w-full max-w-xs text-slate-900" required />
 
                             <p className='text-red-500 mt-2'>{error}</p>
                             <br />
@@ -87,9 +97,11 @@ const Login = () => {
 
                         </div>
                         <div className="divider">OR</div>
+
                         <button onClick={googleSignIn} className="btn btn-white dark:btn-neutral dark:text-white w-full "> <FcGoogle className='mr-5' />  Continue with Google</button>
                         <button onClick={githubSignIn} className="btn btn-white dark:btn-neutral dark:text-white w-full "> <FaGithub className='mr-5' />  Continue with Github</button>
 
+                        <ToastContainer />
                     </div>
                 </form>
             </div>

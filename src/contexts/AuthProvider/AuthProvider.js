@@ -34,7 +34,6 @@ const AuthProvider = ({ children }) => {
     }
 
     const providerLogin = (provider) => {
-        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
@@ -44,10 +43,9 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('user auth state change', currentUser)
-            if (currentUser === null || currentUser.emailVerified || currentUser.providerData[0].providerId == "github.com") {
+            if (currentUser === null || currentUser.emailVerified || currentUser.providerData[0].providerId === "github.com") {
                 setUser(currentUser)
             }
-            setUser(currentUser)
             setLoading(false)
         });
 
