@@ -12,7 +12,6 @@ const CourseContent = () => {
     const course = useLoaderData()
 
     const { title, image, description, id, instructor, category, rating, details } = course;
-    // console.log(course);
     const options = {
         orientation: 'portrait',
         unit: 'in',
