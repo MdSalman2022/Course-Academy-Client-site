@@ -29,7 +29,7 @@ const CourseContent = () => {
                     <p className='lg:text-6xl font-bold mb-5 text-center'>{title}</p>
                     <div className='lg:px-40'><img className='w-full mb-10  lg:rounded-xl px-5 lg:p-0 rounded-3xl' src={image} alt="" /></div>
                     <div className=' lg:p-0 px-5'>
-                        <div className="badge border-0 bg-accent text-yellow-400"><FaStar /> &nbsp;{rating}</div>&nbsp;&nbsp;
+                        <div className="badge border-0 bg-primary text-yellow-400"><FaStar /> &nbsp;{rating}</div>&nbsp;&nbsp;
                         <div className="badge badge-primary">{category}</div>&nbsp;&nbsp;
                         <div className="badge badge-primary">{instructor}</div>
 
