@@ -1,3 +1,41 @@
+## `Site Name` CourseAcademy
+Open [https://course-academy-99252.web.app/](https://course-academy-99252.web.app/) to view it in your browser.
+
+### `Features`
+- Course List
+- Course Details
+- Login
+- Register
+- Private Route
+- Manage Order
+- Order List
+- Order Details
+- Checkout
+- 404 Page
+- FAQ page
+- Blog page
+- Google login
+- Github login
+- Email password registration
+
+
+### `Functionality and Library Used`
+- React Router
+- Firebase Authentication
+- Firebase Hosting
+- React Toastify
+- Tailwind
+- Daisy UI
+- React to pdf
+- Dark Mode
+- Express Js
+- Cors
+- Vercel
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
